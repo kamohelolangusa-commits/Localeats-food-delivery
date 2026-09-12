@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Menu | LocalEats</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Local<span>Eats</span>
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="LocalEats.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="LocalEats Menu.html">
+                    Menu
+                </a>
+            </li>
+
+            <li>
+                <a href="Orders Chechout.html">
+                    Orders
+                </a>
+            </li>
+
+            <li>
+                <a href="LocalEats-SignIn.html">
+                    Login
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =========================
+         MENU HEADER
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Our Menu
+            </h1>
+
+            <p>
+                Choose from our delicious selection of
+                freshly prepared meals.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         MENU CONTENT
+    ========================== -->
+
+    <main class="container">
+
+
+        <h2 class="section-title">
+            Choose a Category
+        </h2>
+
+
+        <!-- CATEGORY BUTTONS -->
+
+        <div class="categories">
+
+
+            <div class="category"
+                 onclick="showCategory('pizza')"
+                 role="button"
+                 tabindex="0">
+
+                <div class="category-icon">
+                    🍕
+                </div>
+
+                <h3>
+                    Pizza
+                </h3>
+
+            </div>
+
+
+
+            <div class="category"
+                 onclick="showCategory('burgers')"
+                 role="button"
+                 tabindex="0">
+
+                <div class="category-icon">
+                    🍔
+                </div>
+
+                <h3>
+                    Burgers
+                </h3>
+
+            </div>
+
+
+
+            <div class="category"
+                 onclick="showCategory('chicken')"
+                 role="button"
+                 tabindex="0">
+
+                <div class="category-icon">
+                    🍗
+                </div>
+
+                <h3>
+                    Chicken
+                </h3>
+
+            </div>
+
+
+
+            <div class="category"
+                 onclick="showCategory('sides')"
+                 role="button"
+                 tabindex="0">
+
+                <div class="category-icon">
+                    🍟
+                </div>
+
+                <h3>
+                    Sides
+                </h3>
+
+            </div>
+
+
+
+            <div class="category"
+                 onclick="showCategory('drinks')"
+                 role="button"
+                 tabindex="0">
+
+                <div class="category-icon">
+                    🥤
+                </div>
+
+                <h3>
+                    Drinks
+                </h3>
+
+            </div>
+
+
+
+            <div class="category"
+                 onclick="showCategory('desserts')"
+                 role="button"
+                 tabindex="0">
+
+                <div class="category-icon">
+                    🍰
+                </div>
+
+                <h3>
+                    Desserts
+                </h3>
+
+            </div>
+
+        </div>
+
+
+
+        <br><br>
+
+
+
+        <!-- =========================
+             PIZZA
+        ========================== -->
+
+        <section id="pizza" class="menu-category">
+
+            <h2 class="section-title">
+                🍕 Pizza
+            </h2>
+
+
+            <div class="restaurant-grid">
+
+
+                <div class="restaurant-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=80"
+                        alt="Pepperoni Pizza"
+                    >
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            Pepperoni Pizza
+                        </h3>
+
+                        <p>
+                            Mozzarella cheese, tomato sauce
+                            and delicious pepperoni.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R120
+                            </span>
+
+                            <span class="delivery-time">
+                                25–35 min
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="restaurant-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=800&q=80"
+                        alt="Margherita Pizza"
+                    >
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            Margherita Pizza
+                        </h3>
+
+                        <p>
+                            Fresh tomato, mozzarella,
+                            basil and tomato sauce.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R105
+                            </span>
+
+                            <span class="delivery-time">
+                                20–30 min
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="restaurant-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1566843972142-a7fcb70de55a?auto=format&fit=crop&w=800&q=80"
+                        alt="BBQ Chicken Pizza"
+                    >
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            BBQ Chicken Pizza
+                        </h3>
+
+                        <p>
+                            Grilled chicken, BBQ sauce,
+                            mozzarella and onions.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R135
+                            </span>
+
+                            <span class="delivery-time">
+                                25–35 min
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="restaurant-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80"
+                        alt="Vegetable Pizza"
+                    >
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            Garden Vegetable Pizza
+                        </h3>
+
+                        <p>
+                            Fresh peppers, mushrooms, onions,
+                            tomato and mozzarella.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R115
+                            </span>
+
+                            <span class="delivery-time">
+                                20–30 min
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             BURGERS
+        ========================== -->
+
+        <section id="burgers" class="menu-category"
+                 style="display:none;">
+
+            <h2 class="section-title">
+                🍔 Burgers
+            </h2>
+
+
+            <div class="restaurant-grid">
+
+
+                <div class="restaurant-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80"
+                        alt="Classic Burger"
+                    >
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            Classic Burger
+                        </h3>
+
+                        <p>
+                            Beef patty, lettuce, tomato,
+                            cheese and special sauce.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R75
+                            </span>
+
+                            <span class="delivery-time">
+                                15–25 min
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="restaurant-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=800&q=80"
+                        alt="Cheese Burger"
+                    >
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            Double Cheese Burger
+                        </h3>
+
+                        <p>
+                            Two beef patties, double cheese,
+                            lettuce and our special sauce.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R95
+                            </span>
+
+                            <span class="delivery-time">
+                                15–25 min
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="restaurant-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=800&q=80"
+                        alt="Chicken Burger"
+                    >
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            Crispy Chicken Burger
+                        </h3>
+
+                        <p>
+                            Crispy chicken fillet, lettuce,
+                            cheese and creamy sauce.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R85
+                            </span>
+
+                            <span class="delivery-time">
+                                20–30 min
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="restaurant-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80"
+                        alt="Bacon Burger"
+                    >
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            Smoky Bacon Burger
+                        </h3>
+
+                        <p>
+                            Beef patty, crispy bacon, cheddar,
+                            lettuce and smoky sauce.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R105
+                            </span>
+
+                            <span class="delivery-time">
+                                20–30 min
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CHICKEN
+        ========================== -->
+
+        <section id="chicken" class="menu-category"
+                 style="display:none;">
+
+            <h2 class="section-title">
+                🍗 Chicken
+            </h2>
+
+
+            <div class="restaurant-grid">
+
+
+                <div class="restaurant-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=80"
+                        alt="Fried Chicken"
+                    >
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            Crispy Fried Chicken
+                        </h3>
+
+                        <p>
+                            Golden crispy chicken
+                            with our signature seasoning.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R95
+                            </span>
+
+                            <span class="delivery-time">
+                                20–30 min
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="restaurant-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=800&q=80"
+                        alt="Chicken Wings"
+                    >
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            BBQ Chicken Wings
+                        </h3>
+
+                        <p>
+                            Tender chicken wings covered
+                            in our smoky BBQ sauce.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R80
+                            </span>
+
+                            <span class="delivery-time">
+                                20–30 min
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="restaurant-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=800&q=80"
+                        alt="Grilled Chicken"
+                    >
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            Grilled Chicken Plate
+                        </h3>
+
+                        <p>
+                            Juicy grilled chicken with herbs,
+                            lemon and a side salad.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R110
+                            </span>
+
+                            <span class="delivery-time">
+                                25–35 min
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             SIDES
+        ========================== -->
+
+        <section id="sides" class="menu-category"
+                 style="display:none;">
+
+            <h2 class="section-title">
+                🍟 Sides
+            </h2>
+
+
+            <div class="restaurant-grid">
+
+
+                <div class="restaurant-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=80"
+                        alt="French Fries"
+                    >
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            Classic Fries
+                        </h3>
+
+                        <p>
+                            Crispy golden fries
+                            seasoned to perfection.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R40
+                            </span>
+
+                            <span class="delivery-time">
+                                10–15 min
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="restaurant-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1623238913973-21e45cced554?auto=format&fit=crop&w=800&q=80"
+                        alt="Loaded Fries"
+                    >
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            Loaded Fries
+                        </h3>
+
+                        <p>
+                            Fries topped with cheese,
+                            sauce and crispy chicken.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R60
+                            </span>
+
+                            <span class="delivery-time">
+                                15–20 min
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="restaurant-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=800&q=80"
+                        alt="Onion Rings"
+                    >
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            Crispy Onion Rings
+                        </h3>
+
+                        <p>
+                            Golden battered onion rings
+                            served with dipping sauce.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R50
+                            </span>
+
+                            <span class="delivery-time">
+                                10–15 min
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             DRINKS
+        ========================== -->
+
+        <section id="drinks" class="menu-category"
+                 style="display:none;">
+
+            <h2 class="section-title">
+                🥤 Drinks
+            </h2>
+
+
+            <div class="restaurant-grid">
+
+
+                <div class="restaurant-card">
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            Coca-Cola
+                        </h3>
+
+                        <p>
+                            500ml chilled Coca-Cola.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R20
+                            </span>
+
+                            <span class="delivery-time">
+                                Cold
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="restaurant-card">
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            Sprite
+                        </h3>
+
+                        <p>
+                            500ml chilled Sprite.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R20
+                            </span>
+
+                            <span class="delivery-time">
+                                Cold
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="restaurant-card">
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            Bottled Water
+                        </h3>
+
+                        <p>
+                            500ml refreshing bottled water.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R15
+                            </span>
+
+                            <span class="delivery-time">
+                                Cold
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="restaurant-card">
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            Fresh Orange Juice
+                        </h3>
+
+                        <p>
+                            Chilled freshly squeezed orange juice.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R30
+                            </span>
+
+                            <span class="delivery-time">
+                                Cold
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             DESSERTS
+        ========================== -->
+
+        <section id="desserts" class="menu-category"
+                 style="display:none;">
+
+            <h2 class="section-title">
+                🍰 Desserts
+            </h2>
+
+
+            <div class="restaurant-grid">
+
+
+                <div class="restaurant-card">
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            Chocolate Cake
+                        </h3>
+
+                        <p>
+                            Rich and moist chocolate cake
+                            with creamy chocolate icing.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R45
+                            </span>
+
+                            <span class="delivery-time">
+                                Ready to serve
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="restaurant-card">
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            Ice Cream
+                        </h3>
+
+                        <p>
+                            Creamy vanilla ice cream
+                            topped with chocolate sauce.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R40
+                            </span>
+
+                            <span class="delivery-time">
+                                Cold
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="restaurant-card">
+
+                    <div class="restaurant-info">
+
+                        <h3>
+                            Strawberry Cheesecake
+                        </h3>
+
+                        <p>
+                            Creamy cheesecake topped with
+                            strawberry sauce.
+                        </p>
+
+                        <div class="restaurant-details">
+
+                            <span class="rating">
+                                R55
+                            </span>
+
+                            <span class="delivery-time">
+                                Ready to serve
+                            </span>
+
+                        </div>
+
+                        <br>
+
+                        <a href="#" class="primary-btn">
+                            Add to Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <h3>
+            LocalEats
+        </h3>
+
+        <p>
+            Fresh food. Great taste. Delivered to you.
+        </p>
+
+        <br>
+
+        <p>
+            © 2026 LocalEats. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        function showCategory(category) {
+
+            // Get all menu categories
+            const categories =
+                document.querySelectorAll(".menu-category");
+
+
+            // Hide every category
+            categories.forEach(function(section) {
+
+                section.style.display = "none";
+
+            });
+
+
+            // Show selected category
+            const selectedCategory =
+                document.getElementById(category);
+
+
+            if (selectedCategory) {
+
+                selectedCategory.style.display = "block";
+
+                if (window.location.hash !== "#" + category) {
+                    history.replaceState(null, "", "#" + category);
+                }
+
+                // Scroll to the selected menu
+                selectedCategory.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }
+
+        }
+
+        function showAllCategories() {
+
+            document.querySelectorAll(".menu-category").forEach(function(section) {
+                section.style.display = "block";
+            });
+
+        }
+
+        document.querySelectorAll(".category").forEach(function(category) {
+            category.addEventListener("keydown", function(event) {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    category.click();
+                }
+            });
+        });
+
+        document.querySelectorAll(".restaurant-info .primary-btn").forEach(function(button) {
+            button.addEventListener("click", function(event) {
+                event.preventDefault();
+
+                const card = button.closest(".restaurant-card");
+                const itemName = card.querySelector("h3").textContent.trim();
+                const itemPrice = Number(card.querySelector(".rating").textContent.replace(/[^0-9.]/g, ""));
+                const order = JSON.parse(sessionStorage.getItem("localeats-order") || "[]");
+                order.push({ name: itemName, price: itemPrice, quantity: 1 });
+                sessionStorage.setItem("localeats-order", JSON.stringify(order));
+
+                button.textContent = "Added to Order";
+                button.setAttribute("aria-label", itemName + " added to order");
+            });
+        });
+
+        const startingCategory = window.location.hash.substring(1);
+
+        if (document.getElementById(startingCategory)) {
+            showCategory(startingCategory);
+        } else {
+            showAllCategories();
+        }
+
+    </script>
+
+
+</body>
+
+</html>
