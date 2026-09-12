@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in | LocalEats</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main class="auth-page">
+    <a class="auth-brand" href="LocalEats.html">Local<span>Eats</span></a>
+
+    <form class="auth-card" id="signin-form" action="login.php" method="post">
+
+        <h1>Welcome back</h1>
+        <p class="auth-intro">Log in to continue ordering your favourite local meals.</p>
+        <p class="auth-success" id="registered-message" hidden>Account created. You can log in now.</p>
+
+        <label for="email">Email address</label>
+        <input id="email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" placeholder="Enter your password" autocomplete="current-password" minlength="6" required>
+
+        <p class="auth-error" id="signin-error" role="alert" hidden></p>
+
+        <button type="submit" class="btn">Log in</button>
+
+        <p class="auth-switch">New to LocalEats? <a href="LocalEats-SignUp.html">Create an account</a></p>
+
+    </form>
+
+    <p class="auth-footer"><a href="LocalEats.html">Back to LocalEats</a></p>
+</main>
+
+<script>
+    const signInForm = document.querySelector('#signin-form');
+    const signInError = document.querySelector('#signin-error');
+    const registeredMessage = document.querySelector('#registered-message');
+
+    registeredMessage.hidden = !new URLSearchParams(window.location.search).has('registered');
+
+    signInForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!signInForm.checkValidity()) {
+            signInError.hidden = false;
+            signInForm.reportValidity();
+            return;
+        }
+
+        try {
+            const apiBase = window.location.pathname.startsWith('/LocalEats-clean/')
+                ? ''
+                : 'http://10.0.2.2/LocalEats-clean';
+            const response = await fetch(apiBase + '/login.php', {
+                method: 'POST',
+                body: new FormData(signInForm),
+                headers: { Accept: 'application/json' }
+            });
+            const result = await response.json();
+            if (!response.ok || !result.success) {
+                signInError.textContent = result.message || 'Unable to log in.';
+                signInError.hidden = false;
+                return;
+            }
+
+            sessionStorage.setItem('localeats-logged-in', 'true');
+            window.location.href = 'LocalEats.html';
+        } catch (error) {
+            signInError.textContent = 'The login server could not be reached.';
+            signInError.hidden = false;
+        }
+    });
+
+</script>
+
+</body>
+</html>

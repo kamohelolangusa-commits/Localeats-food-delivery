@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Checkout | LocalEats</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<nav class="navbar">
+		<div class="logo">Local<span>Eats</span></div>
+		<ul class="nav-links">
+			<li><a href="LocalEats.html">Home</a></li>
+			<li><a href="LocalEats Menu.html">Menu</a></li>
+			<li><a href="Orders Chechout.html">Orders</a></li>
+			<li><a href="LocalEats-SignIn.html">Login</a></li>
+		</ul>
+	</nav>
+
+	<main class="checkout-page">
+		<div class="checkout-heading">
+			<p class="checkout-kicker">LocalEats</p>
+			<h1>Complete your order</h1>
+			<p>Fresh meals, delivered to your door.</p>
+		</div>
+
+		<div id="checkout-empty" class="checkout-empty" hidden>
+			<h2>Your order is empty</h2>
+			<p>Choose something delicious from the menu to get started.</p>
+			<a class="primary-btn" href="LocalEats Menu.html">Browse Menu</a>
+		</div>
+
+		<div id="checkout-content" class="checkout-layout">
+			<section class="checkout-panel">
+				<div class="checkout-panel-heading">
+					<h2>Your order</h2>
+					<button id="clear-order" class="text-button" type="button">Clear all</button>
+				</div>
+				<div id="checkout-items"></div>
+				<div class="checkout-summary">
+					<div><span>Subtotal</span><strong id="checkout-subtotal">R0</strong></div>
+					<div><span>Delivery</span><strong id="checkout-delivery">R0</strong></div>
+					<div class="checkout-total"><span>Total</span><strong id="checkout-total">R0</strong></div>
+				</div>
+			</section>
+
+			<section class="checkout-panel">
+				<h2>Delivery details</h2>
+				<p id="checkout-error" class="checkout-error" hidden>Please complete all required fields.</p>
+				<form id="checkout-form" class="checkout-form">
+					<label for="customer-name">Full name</label>
+					<input id="customer-name" name="customer-name" type="text" autocomplete="name" required>
+
+					<label for="customer-phone">Phone number</label>
+					<input id="customer-phone" name="customer-phone" type="tel" autocomplete="tel" required>
+
+					<label for="customer-address">Delivery address</label>
+					<textarea id="customer-address" name="customer-address" rows="3" autocomplete="street-address" required></textarea>
+
+					<label for="payment-method">Payment method</label>
+					<select id="payment-method" name="payment-method" required>
+						<option value="">Choose a payment method</option>
+						<option value="cash">Cash on delivery</option>
+						<option value="card">Card on delivery</option>
+					</select>
+
+					<button class="checkout-submit" type="submit">Place order</button>
+				</form>
+				<p id="checkout-success" class="checkout-success" hidden></p>
+			</section>
+		</div>
+	</main>
+
+	<footer>
+		<h3>LocalEats</h3>
+		<p>Fresh food. Great taste. Delivered to you.</p>
+	</footer>
+
+	<script>
+		const deliveryFee = 25;
+		const orderKey = "localeats-order";
+		const itemsElement = document.querySelector("#checkout-items");
+		const contentElement = document.querySelector("#checkout-content");
+		const emptyElement = document.querySelector("#checkout-empty");
+		const form = document.querySelector("#checkout-form");
+		const errorElement = document.querySelector("#checkout-error");
+		const successElement = document.querySelector("#checkout-success");
+
+		function readOrder() {
+			try {
+				const storedOrder = JSON.parse(sessionStorage.getItem(orderKey) || "[]");
+				return storedOrder.map(function(item) {
+					if (typeof item === "string") return { name: item, price: 0, quantity: 1 };
+					return { name: item.name, price: Number(item.price) || 0, quantity: Number(item.quantity) || 1 };
+				});
+			} catch (error) {
+				return [];
+			}
+		}
+
+		function groupedOrder() {
+			const grouped = [];
+			readOrder().forEach(function(item) {
+				const existing = grouped.find(function(orderItem) {
+					return orderItem.name === item.name;
+				});
+				if (existing) existing.quantity += item.quantity;
+				else grouped.push(item);
+			});
+			return grouped;
+		}
+
+		function saveOrder(order) {
+			sessionStorage.setItem(orderKey, JSON.stringify(order));
+		}
+
+		function money(value) {
+			return "R" + value.toFixed(2);
+		}
+
+		function renderOrder() {
+			const order = groupedOrder();
+			const subtotal = order.reduce(function(total, item) {
+				return total + item.price * item.quantity;
+			}, 0);
+			contentElement.hidden = order.length === 0;
+			emptyElement.hidden = order.length !== 0;
+			itemsElement.innerHTML = order.map(function(item) {
+				return `<div class="checkout-item">
+					<div><strong>${item.name}</strong><span>${money(item.price)} each</span></div>
+					<div class="quantity-control">
+						<button type="button" data-action="decrease" data-name="${item.name}" aria-label="Remove one ${item.name}">-</button>
+						<span>${item.quantity}</span>
+						<button type="button" data-action="increase" data-name="${item.name}" aria-label="Add one ${item.name}">+</button>
+					</div>
+					<strong>${money(item.price * item.quantity)}</strong>
+				</div>`;
+			}).join("");
+			document.querySelector("#checkout-subtotal").textContent = money(subtotal);
+			document.querySelector("#checkout-delivery").textContent = order.length ? money(deliveryFee) : money(0);
+			document.querySelector("#checkout-total").textContent = money(order.length ? subtotal + deliveryFee : 0);
+		}
+
+		itemsElement.addEventListener("click", function(event) {
+			const button = event.target.closest("[data-action]");
+			if (!button) return;
+			const order = groupedOrder();
+			const item = order.find(function(orderItem) { return orderItem.name === button.dataset.name; });
+			if (!item) return;
+			if (button.dataset.action === "increase") item.quantity += 1;
+			else item.quantity -= 1;
+			saveOrder(order.filter(function(orderItem) { return orderItem.quantity > 0; }));
+			renderOrder();
+		});
+
+		document.querySelector("#clear-order").addEventListener("click", function() {
+			sessionStorage.removeItem(orderKey);
+			renderOrder();
+		});
+
+		form.addEventListener("submit", function(event) {
+			event.preventDefault();
+			if (!form.checkValidity() || groupedOrder().length === 0) {
+				errorElement.hidden = false;
+				form.reportValidity();
+				return;
+			}
+			errorElement.hidden = true;
+			const orderNumber = "LE-" + Math.floor(100000 + Math.random() * 900000);
+			sessionStorage.removeItem(orderKey);
+			form.hidden = true;
+			successElement.textContent = "Order " + orderNumber + " placed successfully. We are preparing your meal now.";
+			successElement.hidden = false;
+			renderOrder();
+			contentElement.hidden = false;
+			emptyElement.hidden = true;
+		});
+
+		renderOrder();
+	</script>
+</body>
+</html>
